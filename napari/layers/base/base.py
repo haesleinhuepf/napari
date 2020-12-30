@@ -62,6 +62,8 @@ class Layer(KeymapProvider, ABC):
         Whether the data is multiscale or not. Multiscale data is
         represented by a list of data objects and should go from largest to
         smallest.
+    source : TODO: what type hint?
+        Source of data in the layer.
 
     Attributes
     ----------
@@ -138,6 +140,8 @@ class Layer(KeymapProvider, ABC):
     scale_factor : float
         Conversion factor from canvas coordinates to image coordinates, which
         depends on the current zoom level.
+    source : TODO: what type hint?
+        Source of data in the layer.
 
 
     Notes
@@ -167,6 +171,7 @@ class Layer(KeymapProvider, ABC):
         blending='translucent',
         visible=True,
         multiscale=False,
+        source=None,
     ):
         super().__init__()
 
@@ -286,6 +291,9 @@ class Layer(KeymapProvider, ABC):
         self.mouse_wheel_callbacks = []
         self._persisted_mouse_event = {}
         self._mouse_drag_gen = {}
+
+        if source is not None:
+            self.source = source
 
     def __str__(self):
         """Return self.name."""
@@ -1013,3 +1021,15 @@ class Layer(KeymapProvider, ABC):
         from ...plugins.io import save_layers
 
         return save_layers(path, [self], plugin=plugin)
+
+    @property
+    def source(self):
+        """The source of data in the layer
+        """
+        return self.metadata.get('source')
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of data in the layer
+        """
+        self.metadata['source'] = source
