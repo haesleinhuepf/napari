@@ -84,6 +84,8 @@ class Vectors(Layer):
         {'opaque', 'translucent', and 'additive'}.
     visible : bool
         Whether the layer visual is currently being displayed.
+    source : TODO: what type to hint?
+        The source of vector data in the layer
 
     Attributes
     ----------
@@ -163,6 +165,7 @@ class Vectors(Layer):
         opacity=0.7,
         blending='translucent',
         visible=True,
+        source=None,
     ):
 
         super().__init__(
@@ -178,6 +181,7 @@ class Vectors(Layer):
             opacity=opacity,
             blending=blending,
             visible=visible,
+            source=source,
         )
 
         # events for non-napari calculations

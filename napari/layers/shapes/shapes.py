@@ -157,6 +157,8 @@ class Shapes(Layer):
         {'opaque', 'translucent', and 'additive'}.
     visible : bool
         Whether the layer visual is currently being displayed.
+    source : TODO: what type to hint?
+        The source of shape data in the layer
 
     Attributes
     ----------
@@ -323,6 +325,7 @@ class Shapes(Layer):
         opacity=0.7,
         blending='translucent',
         visible=True,
+        source=None,
     ):
         if data is None:
             if ndim is None:
@@ -347,6 +350,7 @@ class Shapes(Layer):
             opacity=opacity,
             blending=blending,
             visible=visible,
+            source=source,
         )
 
         self.events.add(

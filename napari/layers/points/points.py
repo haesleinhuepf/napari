@@ -122,6 +122,8 @@ class Points(Layer):
         {'opaque', 'translucent', and 'additive'}.
     visible : bool
         Whether the layer visual is currently being displayed.
+    source : TODO: what type to hint?
+        The source of points data in the layer
 
     Attributes
     ----------
@@ -262,6 +264,7 @@ class Points(Layer):
         opacity=1,
         blending='translucent',
         visible=True,
+        source=None,
     ):
         if data is None:
             if ndim is None:
@@ -287,6 +290,7 @@ class Points(Layer):
             opacity=opacity,
             blending=blending,
             visible=visible,
+            source=source,
         )
 
         self.events.add(

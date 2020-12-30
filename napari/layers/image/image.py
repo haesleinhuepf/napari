@@ -102,6 +102,8 @@ class Image(IntensityVisualizationMixin, Layer):
         the user and if the data is a list of arrays that decrease in shape
         then it will be taken to be multiscale. The first image in the list
         should be the largest.
+    source : TODO: what type to hint?
+        The source of image data in the layer
 
     Attributes
     ----------
@@ -181,6 +183,7 @@ class Image(IntensityVisualizationMixin, Layer):
         blending='translucent',
         visible=True,
         multiscale=None,
+        source=None,
     ):
         if isinstance(data, types.GeneratorType):
             data = list(data)
@@ -219,6 +222,7 @@ class Image(IntensityVisualizationMixin, Layer):
             blending=blending,
             visible=visible,
             multiscale=multiscale,
+            source=source,
         )
 
         self.events.add(

@@ -77,6 +77,8 @@ class Labels(Image):
         the user and if the data is a list of arrays that decrease in shape
         then it will be taken to be multiscale. The first image in the list
         should be the largest.
+    source : TODO: what type to hint?
+        The source of labels data in the layer
 
     Attributes
     ----------
@@ -165,6 +167,7 @@ class Labels(Image):
         blending='translucent',
         visible=True,
         multiscale=None,
+        source=None,
     ):
 
         self._seed = seed
@@ -208,6 +211,7 @@ class Labels(Image):
             blending=blending,
             visible=visible,
             multiscale=multiscale,
+            source=source,
         )
 
         self.events.add(

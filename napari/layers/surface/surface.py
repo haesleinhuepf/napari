@@ -66,6 +66,8 @@ class Surface(IntensityVisualizationMixin, Layer):
         {'opaque', 'translucent', and 'additive'}.
     visible : bool
         Whether the layer visual is currently being displayed.
+    source : TODO: what type to hint?
+        The source of surface data in the layer
 
     Attributes
     ----------
@@ -125,6 +127,7 @@ class Surface(IntensityVisualizationMixin, Layer):
         opacity=1,
         blending='translucent',
         visible=True,
+        source=None,
     ):
 
         ndim = data[0].shape[1]
@@ -142,6 +145,7 @@ class Surface(IntensityVisualizationMixin, Layer):
             opacity=opacity,
             blending=blending,
             visible=visible,
+            source=source,
         )
 
         self.events.add(interpolation=Event, rendering=Event)

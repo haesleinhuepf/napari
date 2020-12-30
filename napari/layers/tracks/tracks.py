@@ -78,6 +78,8 @@ class Tracks(Layer):
         {'opaque', 'translucent', and 'additive'}.
     visible : bool
         Whether the layer visual is currently being displayed.
+    source : TODO: what type to hint?
+        The source of tracks data in the layer
 
 
     """
@@ -107,6 +109,7 @@ class Tracks(Layer):
         colormap='turbo',
         color_by='track_id',
         colormaps_dict=None,
+        source=None,
     ):
 
         # if not provided with any data, set up an empty layer in 2D+t
@@ -136,6 +139,7 @@ class Tracks(Layer):
             opacity=opacity,
             blending=blending,
             visible=visible,
+            source=source,
         )
 
         self.events.add(

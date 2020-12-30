@@ -682,6 +682,7 @@ class ViewerModel(KeymapHandler, KeymapProvider):
         blending=None,
         visible=True,
         multiscale=None,
+        source=None,
     ) -> Union[layers.Image, List[layers.Image]]:
         """Add an image layer to the layer list.
 
@@ -787,6 +788,8 @@ class ViewerModel(KeymapHandler, KeymapProvider):
             the user and if the data is a list of arrays that decrease in shape
             then it will be taken to be multiscale. The first image in the list
             should be the largest.
+        source : TODO: what type to hint?
+            The source of image data in the layer
 
         Returns
         -------
@@ -825,6 +828,7 @@ class ViewerModel(KeymapHandler, KeymapProvider):
             'blending': blending,
             'visible': visible,
             'multiscale': multiscale,
+            'source': source,
         }
 
         # these arguments are *already* iterables in the single-channel case.
